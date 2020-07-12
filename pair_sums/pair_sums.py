@@ -94,14 +94,14 @@ class LargestSubString:
 
         t_total = perf_counter() - t_start
         print(f"\n"
-              f"Elements:    {len(self.elements):>12,} elements\n"
-              f"Took:        {t_total:>12.4f} seconds\n"
-              f"Cache Start: {cache_length:>12,} elements in length\n"
-              f"Cache Size:  {len(storage.keys()):>12,} elements\n"
-              f"Calcs:       {full_calcs:>12,} calculations\n"
-              f"Precalcs:    {precalcs:>12,} calculations\n"
-              f"Duplicates:  {duplicates:>12,} calculations\n"
-              f"Total:       {full_calcs + precalcs + duplicates:>12,} calculations\n")
+              f"Elements:       {len(self.elements):>12,} elements\n"
+              f"Took:           {t_total:>12.4f} seconds\n"
+              f"Cache Start:    {cache_length:>12,} elements in length\n"
+              f"Elems in Cache: {len(storage.keys()):>12,} elements\n"
+              f"Calcs:          {full_calcs:>12,} calculations\n"
+              f"Precalcs:       {precalcs:>12,} calculations\n"
+              f"Duplicates:     {duplicates:>12,} calculations\n"
+              f"Total:          {full_calcs + precalcs + duplicates:>12,} calculations\n")
         return self.max_substring
 
 
