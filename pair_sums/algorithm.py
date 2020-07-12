@@ -4,7 +4,7 @@ from time import perf_counter
 
 num_elems = 1000
 print(f"Number of Elems: {num_elems}")
-#elements = [randint(-100, 100) for _ in range(num_elems - 1)]
+# elements = [randint(-100, 100) for _ in range(num_elems - 1)]
 elements = [5, 7, -5, 6, 3, 9, -8, 2, -1]
 elem_sum = elements[-1]
 
@@ -27,6 +27,7 @@ print(f"TOOK (COMBO SUM): {combo_time}")
 print(f"VALUE: {combo_value}")
 
 print(f"FACTOR IMPROVEMENT: {combo_time/simple_time:0.3f}")
+
 
 def find_me(subarray):
     combos = combinations(list(subarray), 2)
