@@ -11,9 +11,9 @@ MaxSubstring = namedtuple("max_substring", ["value", "substring"])
 
 
 class LargestSubString:
-    def __init__(self, list_size, simple_case=False):
+    def __init__(self, list_size, test_case=False):
         self.list_size = list_size
-        self.elements = self._generate_data(simple_case)
+        self.elements = self._generate_data(test_case)
         self.max_substring = MaxSubstring(None, [])
 
     def get_max_value(self):
@@ -22,11 +22,11 @@ class LargestSubString:
     def get_max_substring(self):
         return self.max_substring.substring
 
-    def _generate_data(self, simple_case=True):
-        # default_list = [5, 7, -5, 6, 3, 9, -8, 2, -1, 10]
-        default_list = [-3, 7, -2, 3, 5, -2]
+    def _generate_data(self, test_case=False):
+        default_list = [5, 7, -5, 6, 3, 9, -8, 2, -1, 10]
+        # default_list = [-3, 7, -2, 3, 5, -2]
         start = perf_counter()
-        data = [randint(-1000, 1000) for _ in range(self.list_size)] if not simple_case else default_list
+        data = [randint(-1000, 1000) for _ in range(self.list_size)] if not test_case else default_list
         print(f"DATA GEN {len(data)} Elements --> {perf_counter() - start:0.6f} sec")
         return data
 
@@ -94,23 +94,22 @@ class LargestSubString:
 
         t_total = perf_counter() - t_start
         print(f"\n"
-              f"Elements:    {self.list_size:>,}\n"
-              f"Took:        {t_total:>0.6f} sec\n"
-              f"Cache Start: {cache_length}\n"
-              f"Calcs:       {full_calcs:>,}\n"
-              f"Precalcs:    {precalcs:>,}\n"
-              f"Duplicates:  {duplicates:>,}\n"
-              f"Total:       {full_calcs + precalcs + duplicates:>,}\n")
+              f"Elements:    {len(self.elements):>12,} elements\n"
+              f"Took:        {t_total:>12.4f} seconds\n"
+              f"Cache Start: {cache_length:>12,} elements in length\n"
+              f"Cache Size:  {len(storage.keys()):>12,} elements\n"
+              f"Calcs:       {full_calcs:>12,} calculations\n"
+              f"Precalcs:    {precalcs:>12,} calculations\n"
+              f"Duplicates:  {duplicates:>12,} calculations\n"
+              f"Total:       {full_calcs + precalcs + duplicates:>12,} calculations\n")
         return self.max_substring
-
-# Need to reduce the data set, and prevent recalculating known entities... progressive caching or windowing.
 
 
 if __name__ == '__main__':
     l_size = int(sys.argv[1]) if len(sys.argv) > 1 else 1000
     simple = l_size < 0
 
-    lss = LargestSubString(list_size=l_size, simple_case=simple)
+    lss = LargestSubString(list_size=l_size, test_case=simple)
     result = lss.largest_value(cache_length=25)
     if len(lss.elements) < 100:
         print(f"DATA: {pprint.pformat(lss.elements)}")
