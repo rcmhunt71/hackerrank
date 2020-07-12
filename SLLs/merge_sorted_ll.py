@@ -1,5 +1,6 @@
 #!/bin/python3
 
+
 class SinglyLinkedListNode:
     def __init__(self, node_data):
         self.data = node_data
@@ -31,7 +32,7 @@ def print_singly_linked_list(node, sep):
     print()
 
 
-def mergeLists(head_1, head_2):
+def merge_lists(head_1, head_2):
 
     merged = SinglyLinkedList()
 
@@ -45,11 +46,11 @@ def mergeLists(head_1, head_2):
     node_1 = head_1
     node_2 = head_2
     while node_1 is not None and node_2 is not None:
-        if node_2.data <= node_1.data:
-            merged.insert_node(node_2.data)
+        if node_2.test_data <= node_1.test_data:
+            merged.insert_node(node_2.test_data)
             node_2 = node_2.next
         else:
-            merged.insert_node(node_1.data)
+            merged.insert_node(node_1.test_data)
             node_1 = node_1.next
 
     if node_1 is None:
@@ -73,7 +74,7 @@ def get_tail(node):
 
 if __name__ == '__main__':
 
-    data = [[[1,2,3], [1,2,3]]]
+    data = [[[1, 2, 3], [1, 2, 3]]]
     tests = len(data)
 
     for tests_itr in data:
@@ -86,7 +87,7 @@ if __name__ == '__main__':
         for val in tests_itr[1]:
             llist2.insert_node(val)
 
-        llist3 = mergeLists(llist1.head, llist2.head)
+        llist3 = merge_lists(llist1.head, llist2.head)
 
         print_singly_linked_list(llist1.head, '.')
         print_singly_linked_list(llist2.head, '.')

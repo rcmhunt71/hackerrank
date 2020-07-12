@@ -31,7 +31,6 @@ def print_singly_linked_list(node, sep):
 
 
 def update_reference(current_node, tail=None):
-    tail = None
     if current_node is None:
         return current_node, current_node
 

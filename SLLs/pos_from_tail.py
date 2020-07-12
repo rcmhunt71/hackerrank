@@ -1,11 +1,5 @@
 #!/bin/python3
 
-import math
-import os
-import random
-import re
-import sys
-
 
 class SinglyLinkedListNode:
     def __init__(self, node_data):
@@ -25,7 +19,6 @@ class SinglyLinkedList:
             self.head = node
         else:
             self.tail.next = node
-
         self.tail = node
 
 
@@ -39,8 +32,8 @@ def print_singly_linked_list(node, sep, fptr):
             fptr.write(sep)
 
 
-def getNode(head, positionFromTail):
-    if head is None or positionFromTail < 0:
+def get_node(head, position_from_tail):
+    if head is None or position_from_tail < 0:
         return
 
     num_nodes = 0
@@ -49,10 +42,10 @@ def getNode(head, positionFromTail):
         tail = tail.next
         num_nodes += 1
 
-    print(f"TAIL: {tail.data}")
-    position_from_head = num_nodes - positionFromTail
+    print(f"TAIL: {tail.test_data}")
+    position_from_head = num_nodes - position_from_tail
 
-    print(f"POS_T: {positionFromTail}")
+    print(f"POS_T: {position_from_tail}")
     print(f"POS_H: {position_from_head}")
 
     if position_from_head < 0:
@@ -61,7 +54,7 @@ def getNode(head, positionFromTail):
     for _ in range(position_from_head):
         node = node.next
 
-    return node.data
+    return node.test_data
 
 
 if __name__ == '__main__':
@@ -75,5 +68,5 @@ if __name__ == '__main__':
             llist.insert_node(elem)
         position = tests_itr[1]
 
-        result = getNode(llist.head, position)
+        result = get_node(llist.head, position)
         print(f"RESULT: {result}\n\n")

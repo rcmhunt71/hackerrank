@@ -1,9 +1,11 @@
 #!/bin/python3
 
+
 class SinglyLinkedListNode:
     def __init__(self, node_data):
         self.data = node_data
         self.next = None
+
 
 class SinglyLinkedList:
     def __init__(self):
@@ -28,10 +30,10 @@ def print_singly_linked_list(node, sep):
     print()
 
 
-def removeDuplicates(head):
+def remove_duplicates(head):
     node = head
     while node is not None:
-        if node.next is not None and node.data == node.next.data:
+        if node.next is not None and node.data == node.next.test_data:
             node.next = node.next.next
         else:
             node = node.next
@@ -56,6 +58,6 @@ if __name__ == '__main__':
 
         print("\nORIG: ", end='')
         print_singly_linked_list(llist.head, ' ')
-        llist1 = removeDuplicates(llist.head)
+        llist1 = remove_duplicates(llist.head)
         print("UPDATE: ", end='')
         print_singly_linked_list(llist1, ' ')

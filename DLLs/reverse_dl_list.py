@@ -1,16 +1,12 @@
 #!/bin/python3
 
-import math
-import os
-import random
-import re
-import sys
 
 class DoublyLinkedListNode:
     def __init__(self, node_data):
         self.data = node_data
         self.next = None
         self.prev = None
+
 
 class DoublyLinkedList:
     def __init__(self):
@@ -25,8 +21,6 @@ class DoublyLinkedList:
         else:
             self.tail.next = node
             node.prev = self.tail
-
-
         self.tail = node
 
 
@@ -38,17 +32,18 @@ def print_doubly_linked_list(node, sep):
             print(sep, end='')
         print()
 
+
 def print_node(node, preamble):
     if node is None:
-        print(f"NONE node. PREABLE: {preamble}")
+        print(f"NONE node. PREAMBLE: {preamble}")
         return
     try:
-        node_prev = node.prev.data
+        node_prev = node.prev.test_data
     except AttributeError:
         node_prev = None
 
     try:
-        node_next = node.next.data
+        node_next = node.next.test_data
     except AttributeError:
         node_next = None
     print(f"{preamble}: {node_prev} --> {node.data} --> {node_next}")
@@ -59,7 +54,7 @@ def node_copy(node):
     Copy is needed due the python assignment being a reference, not a copy,
     so any operation on the node is reflected in all subsequent calls
     """
-    new_node = DoublyLinkedListNode(node.data)
+    new_node = DoublyLinkedListNode(node.test_data)
     new_node.next = node.next
     new_node.prev = node.prev
     return new_node

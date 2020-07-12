@@ -1,5 +1,4 @@
 #! /bin/python3
-import os
 
 
 class SinglyLinkedListNode:
@@ -33,7 +32,7 @@ def print_singly_linked_list(node, sep=" "):
 
 
 # Complete the insertNodeAtPosition function below.
-def insertNodeAtPosition(head, data, position):
+def insert_node_at_position(head, data, position):
     new_node = SinglyLinkedListNode(data)
     if head is None:
         return new_node
@@ -60,9 +59,9 @@ if __name__ == '__main__':
         llist_item = int(input())
         llist.insert_node(llist_item)
 
-    data = int(input())
+    test_data = int(input())
 
-    position = int(input())
+    test_position = int(input())
 
-    llist_head = insertNodeAtPosition(llist.head, data, position)
+    llist_head = insert_node_at_position(llist.head, test_data, test_position)
     print_singly_linked_list(llist_head, ' ')

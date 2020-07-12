@@ -1,5 +1,5 @@
 #!/bin/python3
-import os
+
 
 class SinglyLinkedListNode:
     def __init__(self, node_data):
@@ -31,7 +31,8 @@ def print_singly_linked_list(node, sep):
             print(sep, end='')
     print()
 
-def findMergeNode(head1, head2):
+
+def find_merge_node(head1, head2):
     nodes = {}
 
     node = head1
@@ -42,7 +43,7 @@ def findMergeNode(head1, head2):
     node = head2
     while node is not None:
         if node in nodes:
-            return node.data
+            return node.test_data
         node = node.next
     return None
 
@@ -78,6 +79,6 @@ if __name__ == '__main__':
                 ptr2 = ptr2.next
 
         ptr2.next = ptr1
-        result = findMergeNode(llist1.head, llist2.head)
+        result = find_merge_node(llist1.head, llist2.head)
 
         print(f"Result: {str(result)}")

@@ -1,11 +1,12 @@
 #!/bin/python3
-import os
+
 
 class DoublyLinkedListNode:
     def __init__(self, node_data):
         self.data = node_data
         self.next = None
         self.prev = None
+
 
 class DoublyLinkedList:
     def __init__(self):
@@ -20,9 +21,8 @@ class DoublyLinkedList:
         else:
             self.tail.next = node
             node.prev = self.tail
-
-
         self.tail = node
+
 
 def print_doubly_linked_list(node, sep):
     while node:
@@ -31,6 +31,7 @@ def print_doubly_linked_list(node, sep):
         if node:
             print(sep, end='')
     print()
+
 
 #
 # For your reference:
@@ -41,7 +42,7 @@ def print_doubly_linked_list(node, sep):
 #     DoublyLinkedListNode prev
 #
 #
-def sortedInsert(head, data):
+def sorted_insert(head, data):
     node = head
     insert_node = DoublyLinkedListNode(data)
     while node is not None:
@@ -74,7 +75,7 @@ def sortedInsert(head, data):
 
 if __name__ == '__main__':
 
-    data = [
+    test_data = [
         ([1, 3, 4, 10], 5),
         ([1, 3, 4, 10], 0),
         ([1, 3, 4, 10], 20),
@@ -84,11 +85,11 @@ if __name__ == '__main__':
         ([1, 3, 3, 4, 10], 3),
     ]
 
-    for test_case in data:
+    for test_case in test_data:
         llist = DoublyLinkedList()
         for llist_item in test_case[0]:
             llist.insert_node(llist_item)
 
-        llist1_head = sortedInsert(llist.head, test_case[1])
+        llist1_head = sorted_insert(llist.head, test_case[1])
 
         print_doubly_linked_list(llist1_head, ' ')

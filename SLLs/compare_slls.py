@@ -1,5 +1,4 @@
 #!/bin/python3
-import os
 
 
 class SinglyLinkedListNode:
@@ -42,7 +41,7 @@ def compare_lists(llist1_head, llist2_head):
         if None in [node_1, node_2]:
             return node_1 is None and node_2 is None
 
-        if node_1.data != node_2.data:
+        if node_1.test_data != node_2.test_data:
             return False
 
         (node_1, node_2) = (node_1.next, node_2.next)
@@ -79,4 +78,3 @@ if __name__ == '__main__':
         print_singly_linked_list(node=llist2.head)
 
         print(f"Lists Match: {str(result)}\n")
-

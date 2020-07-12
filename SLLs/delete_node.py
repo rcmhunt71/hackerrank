@@ -1,11 +1,5 @@
 #!/bin/python3
 
-import math
-import os
-import random
-import re
-import sys
-
 
 class SinglyLinkedListNode:
     def __init__(self, node_data):
@@ -39,7 +33,7 @@ def print_singly_linked_list(node, sep):
             print(sep, end='')
 
 
-def deleteNode(head, position):
+def delete_node(head, position):
     if head is not None and position >= 0:
         if position == 0:
             return head.next
@@ -63,7 +57,7 @@ if __name__ == '__main__':
     for _ in range(int(input())):
         llist.insert_node(int(input()))
 
-    position = int(input())
-    llist1 = deleteNode(llist.head, position)
+    input_position = int(input())
+    llist1 = delete_node(llist.head, input_position)
 
     print_singly_linked_list(llist1, ' ')
